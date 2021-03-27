@@ -1,0 +1,11 @@
+<h1>This is my user list component</h1>
+<button (click)="LoadUsers()">Load Users</button>
+<hr>
+<div class="wrapper">
+    <div class="one">
+         <app-user-data *ngFor="let _user of ListOfUser" [user]="_user" [routerLink]="[_user.Name]" ></app-user-data> 
+    </div>
+    <div class="two">
+        <router-outlet></router-outlet>
+    </div>
+</div>
