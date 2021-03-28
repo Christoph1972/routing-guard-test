@@ -20,14 +20,19 @@ export class UserService {
 
   GetUserByName(name: string): User {
 
-    var result = this.Users.find(x => { return x.Name === name });
+    // Do NOT use var: use let or const instead
+    const result = this.Users.find(x => { return x.Name === name });
 
-    if (result !== null) {
-      return result as User;
-    }
-    else {
-      return new User("Undifened", -1);
-    }
+    // if (result !== null) {
+    //   return result as User;
+    // }
+    // else {
+    //   return new User("Undifened", -1);
+    // }
+
+    // See this: https://interglacial.com/javascript_spec/a-11.html#a-11.11
+    // for understanding why you can use the OR operator this way
+    return result || new User("Undefined", -1);
   }
 
   GetUser(): Observable<User[]> {

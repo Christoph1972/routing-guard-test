@@ -1,10 +1,23 @@
 <h1>User Editor</h1>
-<div>
-    <span>Name:</span>
-    <input type="text" value="{{user.Name}}"/>
-</div>
-<div>
-    <span>Age:</span>
-    <input type="text" value="{{user.Age}}"/>
-</div>
+<form>
+    <div>
 
+        <span>Name:</span>
+        <!--
+        Do not close the input tag with the /> use the > instead:
+        /> is a syntax used in XHTML, you are working with HTML5 here
+        (see the doctype in the index.html)
+
+        Use the ngModel directive to bind the value property to the user's name/age property
+        Remember that the ngModel directive is given by the FormsModule, that let you use
+        the Template Driven Form approach
+
+        With a Template Driven Form, each input field needs a name attribute
+    -->
+        <input type="text" name="name" [(ngModel)]="user.Name">
+    </div>
+    <div>
+        <span>Age:</span>
+        <input type="text" name="age" [(ngModel)]="user.Age">
+    </div>
+</form>
